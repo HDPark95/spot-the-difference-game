@@ -20,8 +20,8 @@ if (!fs.existsSync(SCREENSHOT_DIR)) fs.mkdirSync(SCREENSHOT_DIR, { recursive: tr
 
 const levels = [
   { id: "cafe", diffs: [
-    { cx:89,cy:123,r:22 }, { cx:381,cy:116,r:22 }, { cx:399,cy:387,r:22 },
-    { cx:114,cy:193,r:20 }, { cx:235,cy:238,r:28 }
+    { cx:89,cy:123,r:22 }, { cx:400,cy:116,r:22 }, { cx:399,cy:240,r:22 },
+    { cx:108,cy:221,r:30 }, { cx:166,cy:370,r:30 }
   ]},
   { id: "livingroom", diffs: [
     { cx:111,cy:196,r:22 }, { cx:99,cy:275,r:22 }, { cx:398,cy:339,r:28 },

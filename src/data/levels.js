@@ -9,10 +9,10 @@ export const levels = [
     modifiedSvg: "/scenes/cafe-modified.svg",
     diffs: [
       { id: 1, cx: 89, cy: 123, r: 22, label: "메뉴판 커피잔 아이콘이 사라졌어요" },
-      { id: 2, cx: 381, cy: 116, r: 22, label: "선반 위 병이 사라졌어요" },
-      { id: 3, cx: 399, cy: 387, r: 22, label: "손님 핸드백이 사라졌어요" },
-      { id: 4, cx: 114, cy: 193, r: 20, label: "커피머신 상단 패널 색이 바뀌었어요" },
-      { id: 5, cx: 235, cy: 238, r: 28, label: "계산대 기계 위치가 바뀌었어요" },
+      { id: 2, cx: 400, cy: 116, r: 22, label: "선반 위 병이 사라졌어요" },
+      { id: 3, cx: 399, cy: 240, r: 22, label: "손님 핸드백이 사라졌어요" },
+      { id: 4, cx: 108, cy: 221, r: 30, label: "커피머신이 좌우반전 되었어요" },
+      { id: 5, cx: 166, cy: 370, r: 30, label: "카운터 문 장식이 사라졌어요" },
     ],
   },
   {
