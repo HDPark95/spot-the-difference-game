@@ -104,11 +104,11 @@ export const levels = [
     originalSvg: "/scenes/classroom.svg",
     modifiedSvg: "/scenes/classroom-modified.svg",
     diffs: [
-      { id: 1, cx: 331, cy: 133, r: 35, label: "칠판 위 글씨가 사라졌어요" },
-      { id: 2, cx: 116, cy: 350, r: 40, label: "학생 상의 색이 바뀌었어요" },
-      { id: 3, cx: 272, cy: 309, r: 45, label: "학생 위치가 바뀌었어요" },
-      { id: 4, cx: 404, cy: 78, r: 35, label: "교실 배경 물건이 사라졌어요" },
-      { id: 5, cx: 377, cy: 285, r: 45, label: "학생이 반대 방향을 보고 있어요" },
+      { id: 1, cx: 305, cy: 155, r: 50, label: "칠판 원형 장식이 사라졌어요" },
+      { id: 2, cx: 110, cy: 275, r: 45, label: "왼쪽 학생 상의 색이 바뀌었어요" },
+      { id: 3, cx: 404, cy: 78, r: 35, label: "배경 시계가 사라졌어요" },
+      { id: 4, cx: 225, cy: 280, r: 45, label: "가운데 학생 상의 색이 바뀌었어요" },
+      { id: 5, cx: 390, cy: 215, r: 50, label: "오른쪽 학생 상의 색이 바뀌었어요" },
     ],
   },
   {
