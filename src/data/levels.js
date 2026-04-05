@@ -56,11 +56,11 @@ export const levels = [
     originalSvg: "/scenes/dogwalk.svg",
     modifiedSvg: "/scenes/dogwalk-modified.svg",
     diffs: [
-      { id: 1, cx: 144, cy: 340, r: 20, label: "소화전 몸통 색이 바뀌었어요" },
-      { id: 2, cx: 149, cy: 133, r: 18, label: "가로등 램프 색이 바뀌었어요" },
-      { id: 3, cx: 174, cy: 385, r: 16, label: "캐릭터 왼발 색이 바뀌었어요" },
-      { id: 4, cx: 230, cy: 388, r: 16, label: "캐릭터 오른발 색이 바뀌었어요" },
-      { id: 5, cx: 340, cy: 358, r: 20, label: "나무 하단 덤불 색이 바뀌었어요" },
+      { id: 1, cx: 147, cy: 110, r: 22, label: "구름 색이 바뀌었어요" },
+      { id: 2, cx: 190, cy: 300, r: 20, label: "왼쪽 식물이 사라졌어요" },
+      { id: 3, cx: 260, cy: 240, r: 22, label: "강아지 몸통 색이 바뀌었어요" },
+      { id: 4, cx: 290, cy: 380, r: 18, label: "신발 색이 바뀌었어요" },
+      { id: 5, cx: 310, cy: 280, r: 22, label: "오른쪽 덤불 색이 바뀌었어요" },
     ],
   },
   {
