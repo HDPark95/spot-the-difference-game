@@ -116,14 +116,12 @@ export default function GamePage() {
           onWrong={handleWrong}
         />
         <GamePanel
-          svgUrl={level.originalSvg}
+          svgUrl={level.modifiedSvg || level.originalSvg}
           label="B"
           diffs={level.diffs}
           found={found}
           onDiffFound={handleDiffFound}
           onWrong={handleWrong}
-          isModified
-          applyDiffs={level.applyDiffs}
         />
       </div>
 

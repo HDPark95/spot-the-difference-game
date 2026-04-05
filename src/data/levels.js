@@ -6,6 +6,7 @@ export const levels = [
     difficulty: "쉬움",
     diffCount: 5,
     originalSvg: "/scenes/cafe.svg",
+    modifiedSvg: "/scenes/cafe-modified.svg",
     diffs: [
       { id: 1, cx: 89, cy: 123, r: 20, label: "메뉴판 커피잔 아이콘 색이 바뀌었어요" },
       { id: 2, cx: 114, cy: 193, r: 22, label: "커피머신 상단 색이 바뀌었어요" },
@@ -13,47 +14,6 @@ export const levels = [
       { id: 4, cx: 389, cy: 240, r: 18, label: "손님의 가방이 사라졌어요" },
       { id: 5, cx: 191, cy: 122, r: 18, label: "메뉴판 커피 아이콘이 사라졌어요" },
     ],
-    // Puppeteer page.evaluate 안에서 실행할 변형 로직
-    applyDiffs: (svg) => {
-      // 1. 메뉴보드 왼쪽 커피잔 아이콘 파랑→빨강
-      svg.querySelectorAll("#menu-board polygon").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        if (s.includes("#407BFF")) {
-          const bb = p.getBBox();
-          if (bb.x > 70 && bb.x < 100 && bb.y > 100 && bb.y < 140)
-            p.setAttribute("style", s.replace(/#407BFF/g, "#E74C3C"));
-        }
-      });
-      // 2. 커피머신 상단 파란 라인 → 초록
-      svg.querySelectorAll("#coffee-machine path").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        const bb = p.getBBox();
-        if (s.includes("#407BFF") && bb.y < 200 && bb.height < 20)
-          p.setAttribute("style", s.replace(/#407BFF/g, "#27AE60"));
-      });
-      // 3. 선반 위 병 제거
-      let removed = 0;
-      svg.querySelectorAll("#background-complete path, #background-complete polygon").forEach((p) => {
-        const bb = p.getBBox();
-        if (bb.x > 410 && bb.x < 445 && bb.y > 100 && bb.y < 135 && removed < 3) {
-          p.style.display = "none";
-          removed++;
-        }
-      });
-      // 4. 손님 가방 제거
-      svg.querySelectorAll("#character-2 path").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        const bb = p.getBBox();
-        if (s.includes("#263238") && bb.x > 375 && bb.x < 405 && bb.y > 220 && bb.y < 260 && bb.width < 25)
-          p.style.display = "none";
-      });
-      // 5. 메뉴보드 오른쪽 커피 아이콘 제거
-      svg.querySelectorAll("#menu-board path").forEach((p) => {
-        const bb = p.getBBox();
-        if (bb.x > 170 && bb.x < 210 && bb.y > 110 && bb.y < 140 && bb.width < 30)
-          p.style.display = "none";
-      });
-    },
   },
   {
     id: "livingroom",
@@ -62,41 +22,46 @@ export const levels = [
     difficulty: "보통",
     diffCount: 5,
     originalSvg: "/scenes/livingroom.svg",
+    modifiedSvg: "/scenes/livingroom-modified.svg",
     diffs: [
-      { id: 1, cx: 250, cy: 150, r: 22, label: "커튼 색이 바뀌었어요" },
-      { id: 2, cx: 400, cy: 200, r: 20, label: "액자가 사라졌어요" },
-      { id: 3, cx: 150, cy: 350, r: 22, label: "쿠션 색이 바뀌었어요" },
-      { id: 4, cx: 350, cy: 380, r: 20, label: "화분이 사라졌어요" },
-      { id: 5, cx: 100, cy: 250, r: 18, label: "책장의 책 색이 바뀌었어요" },
+      { id: 1, cx: 111, cy: 196, r: 20, label: "선반 상단 북엔드 색이 바뀌었어요" },
+      { id: 2, cx: 99, cy: 275, r: 20, label: "선반 중단 북엔드 색이 바뀌었어요" },
+      { id: 3, cx: 91, cy: 359, r: 18, label: "선반 하단 장식 색이 바뀌었어요" },
+      { id: 4, cx: 407, cy: 395, r: 20, label: "화분 받침대 색이 바뀌었어요" },
+      { id: 5, cx: 336, cy: 335, r: 22, label: "인물 상의 색이 바뀌었어요" },
     ],
-    applyDiffs: (svg) => {
-      // 거실 SVG 변형 - 그룹 ID에 따라 하위 요소 변경
-      const groups = svg.querySelectorAll("g[id]");
-      groups.forEach((g) => {
-        const id = g.id;
-        const paths = g.querySelectorAll("path, rect, polygon, ellipse");
-        paths.forEach((p) => {
-          const s = p.getAttribute("style") || "";
-          const bb = p.getBBox();
-          // 색상 기반 작은 변경
-          if (s.includes("#407BFF") && bb.width < 40 && bb.height < 40) {
-            p.setAttribute("style", s.replace(/#407BFF/g, "#E74C3C"));
-          }
-        });
-      });
-      // 작은 장식 요소 제거
-      let removed = 0;
-      svg.querySelectorAll("path, rect").forEach((p) => {
-        const bb = p.getBBox();
-        const s = p.getAttribute("style") || "";
-        if (bb.width > 10 && bb.width < 30 && bb.height > 10 && bb.height < 30 && removed < 2) {
-          if (bb.x > 350 && bb.y > 150 && bb.y < 300) {
-            p.style.display = "none";
-            removed++;
-          }
-        }
-      });
-    },
+  },
+  {
+    id: "park",
+    title: "공원 피크닉",
+    desc: "즐거운 피크닉에서 다른 곳 5개를 찾아보세요",
+    difficulty: "보통",
+    diffCount: 5,
+    originalSvg: "/scenes/park.svg",
+    modifiedSvg: "/scenes/park-modified.svg",
+    diffs: [
+      { id: 1, cx: 106, cy: 284, r: 18, label: "여자 머리띠 색이 바뀌었어요" },
+      { id: 2, cx: 193, cy: 316, r: 18, label: "여자의 컵 색이 바뀌었어요" },
+      { id: 3, cx: 356, cy: 300, r: 18, label: "아이 소매 패치 색이 바뀌었어요" },
+      { id: 4, cx: 212, cy: 372, r: 18, label: "바구니 손잡이가 사라졌어요" },
+      { id: 5, cx: 250, cy: 411, r: 22, label: "피크닉 매트 색이 바뀌었어요" },
+    ],
+  },
+  {
+    id: "dogwalk",
+    title: "강아지 산책",
+    desc: "산책길에서 다른 곳 5개를 찾아보세요",
+    difficulty: "어려움",
+    diffCount: 5,
+    originalSvg: "/scenes/dogwalk.svg",
+    modifiedSvg: "/scenes/dogwalk-modified.svg",
+    diffs: [
+      { id: 1, cx: 144, cy: 340, r: 20, label: "소화전 몸통 색이 바뀌었어요" },
+      { id: 2, cx: 149, cy: 133, r: 18, label: "가로등 램프 색이 바뀌었어요" },
+      { id: 3, cx: 174, cy: 385, r: 16, label: "캐릭터 왼발 색이 바뀌었어요" },
+      { id: 4, cx: 230, cy: 388, r: 16, label: "캐릭터 오른발 색이 바뀌었어요" },
+      { id: 5, cx: 340, cy: 358, r: 20, label: "나무 하단 덤불 색이 바뀌었어요" },
+    ],
   },
   {
     id: "coffee",
@@ -105,6 +70,7 @@ export const levels = [
     difficulty: "보통",
     diffCount: 5,
     originalSvg: "/scenes/coffee.svg",
+    modifiedSvg: "/scenes/coffee-modified.svg",
     diffs: [
       { id: 1, cx: 240, cy: 234, r: 20, label: "접시 위 케이크가 바뀌었어요" },
       { id: 2, cx: 387, cy: 255, r: 22, label: "의자 색이 바뀌었어요" },
@@ -112,31 +78,5 @@ export const levels = [
       { id: 4, cx: 300, cy: 280, r: 18, label: "포크가 사라졌어요" },
       { id: 5, cx: 370, cy: 170, r: 20, label: "손 위치가 바뀌었어요" },
     ],
-    applyDiffs: (svg) => {
-      // 의자 색 변경 (작은 하위 요소)
-      svg.querySelectorAll("#Chair path, #Chair polygon, #Chair rect").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        const bb = p.getBBox();
-        if (s.includes("#BA68C8") && bb.width < 50 && bb.height < 30) {
-          p.setAttribute("style", s.replace(/#BA68C8/g, "#E67E22"));
-        }
-      });
-      // 테이블 위 작은 요소 변경
-      svg.querySelectorAll("#Table path, #Table polygon").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        const bb = p.getBBox();
-        if (bb.width < 20 && bb.height < 20 && bb.x > 270 && bb.y > 260) {
-          p.style.display = "none";
-        }
-      });
-      // 컵 색 변경
-      svg.querySelectorAll("#character-1 path").forEach((p) => {
-        const s = p.getAttribute("style") || "";
-        const bb = p.getBBox();
-        if (s.includes("#BA68C8") && bb.width < 25 && bb.y < 180) {
-          p.setAttribute("style", s.replace(/#BA68C8/g, "#3498DB"));
-        }
-      });
-    },
   },
 ];

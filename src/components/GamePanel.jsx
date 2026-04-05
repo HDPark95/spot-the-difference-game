@@ -1,11 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./GamePanel.module.css";
 
-export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, onWrong, applyDiffs, isModified }) {
+export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, onWrong }) {
   const containerRef = useRef(null);
   const [svgLoaded, setSvgLoaded] = useState(false);
+  const [viewBox, setViewBox] = useState([0, 0, 500, 500]);
 
   useEffect(() => {
+    setSvgLoaded(false);
     fetch(svgUrl)
       .then((r) => r.text())
       .then((svgText) => {
@@ -19,24 +21,19 @@ export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, on
           svg.style.width = "100%";
           svg.style.height = "auto";
           svg.style.display = "block";
-          // background-simple 숨기기
+          const vb = svg.getAttribute("viewBox")?.split(/\s+/).map(Number) || [0, 0, 500, 500];
+          setViewBox(vb);
           const bgSimple = svg.querySelector("#background-simple");
           if (bgSimple) bgSimple.style.display = "none";
-
-          // B 패널이면 변형 적용
-          if (isModified && applyDiffs) {
-            applyDiffs(svg);
-          }
         }
         setSvgLoaded(true);
       });
-  }, [svgUrl, isModified, applyDiffs]);
+  }, [svgUrl]);
 
   const handleClick = (e) => {
     const svg = containerRef.current?.querySelector("svg");
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
-    const viewBox = svg.getAttribute("viewBox")?.split(/\s+/).map(Number) || [0, 0, 500, 500];
     const vw = viewBox[2], vh = viewBox[3];
     const vx = ((e.clientX - rect.left) / rect.width) * vw;
     const vy = ((e.clientY - rect.top) / rect.height) * vh;
@@ -51,32 +48,33 @@ export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, on
     if (hit) {
       onDiffFound(hit);
     } else {
-      onWrong(e.clientX - rect.left, e.clientY - rect.top);
+      const pr = containerRef.current.getBoundingClientRect();
+      onWrong(e.clientX - pr.left, e.clientY - pr.top);
     }
+  };
+
+  const getCircleStyle = (d) => {
+    const svg = containerRef.current?.querySelector("svg");
+    if (!svg) return {};
+    const rect = svg.getBoundingClientRect();
+    const parentRect = containerRef.current.getBoundingClientRect();
+    const sx = rect.width / viewBox[2], sy = rect.height / viewBox[3];
+    const sz = d.r * 2 * sx;
+    return {
+      width: sz, height: sz,
+      left: d.cx * sx - sz / 2 + (rect.left - parentRect.left),
+      top: d.cy * sy - sz / 2 + (rect.top - parentRect.top),
+    };
   };
 
   return (
     <div className={styles.panel} onClick={handleClick}>
       <div className={styles.label}>{label}</div>
       <div ref={containerRef} className={styles.svgContainer} />
-      {/* 정답 원 */}
       {svgLoaded && [...found].map((fid) => {
         const d = diffs.find((x) => x.id === fid);
         if (!d) return null;
-        const svg = containerRef.current?.querySelector("svg");
-        if (!svg) return null;
-        const rect = svg.getBoundingClientRect();
-        const parentRect = containerRef.current.getBoundingClientRect();
-        const viewBox = svg.getAttribute("viewBox")?.split(/\s+/).map(Number) || [0, 0, 500, 500];
-        const sx = rect.width / viewBox[2], sy = rect.height / viewBox[3];
-        const sz = d.r * 2 * sx;
-        return (
-          <div key={fid} className={styles.foundCircle} style={{
-            width: sz, height: sz,
-            left: d.cx * sx - sz / 2 + (rect.left - parentRect.left),
-            top: d.cy * sy - sz / 2 + (rect.top - parentRect.top),
-          }} />
-        );
+        return <div key={fid} className={styles.foundCircle} style={getCircleStyle(d)} />;
       })}
     </div>
   );
