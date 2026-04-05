@@ -20,24 +20,24 @@ if (!fs.existsSync(SCREENSHOT_DIR)) fs.mkdirSync(SCREENSHOT_DIR, { recursive: tr
 
 const levels = [
   { id: "cafe", diffs: [
-    { cx:89,cy:123,r:22 }, { cx:379,cy:120,r:22 }, { cx:399,cy:240,r:22 },
-    { cx:108,cy:221,r:30 }, { cx:187,cy:334,r:25 }
+    { cx:89,cy:123,r:32 }, { cx:379,cy:120,r:32 }, { cx:399,cy:240,r:32 },
+    { cx:108,cy:221,r:30 }, { cx:187,cy:334,r:35 }
   ]},
   { id: "livingroom", diffs: [
-    { cx:111,cy:196,r:22 }, { cx:99,cy:275,r:22 }, { cx:398,cy:339,r:28 },
-    { cx:240,cy:178,r:25 }, { cx:86,cy:192,r:22 }
+    { cx:111,cy:196,r:32 }, { cx:99,cy:275,r:32 }, { cx:398,cy:339,r:35 },
+    { cx:240,cy:178,r:35 }, { cx:86,cy:192,r:32 }
   ]},
   { id: "park", diffs: [
-    { cx:250,cy:412,r:25 }, { cx:375,cy:333,r:25 }, { cx:308,cy:78,r:22 },
-    { cx:233,cy:386,r:22 }, { cx:205,cy:215,r:22 }
+    { cx:250,cy:412,r:35 }, { cx:375,cy:333,r:35 }, { cx:308,cy:78,r:32 },
+    { cx:233,cy:386,r:32 }, { cx:205,cy:215,r:32 }
   ]},
   { id: "dogwalk", diffs: [
-    { cx:195,cy:108,r:25 }, { cx:155,cy:245,r:25 }, { cx:400,cy:82,r:22 },
+    { cx:195,cy:108,r:35 }, { cx:155,cy:245,r:35 }, { cx:400,cy:82,r:32 },
     { cx:235,cy:265,r:35 }, { cx:250,cy:160,r:35 }
   ]},
   { id: "coffee", diffs: [
-    { cx:239,cy:223,r:22 }, { cx:211,cy:202,r:22 }, { cx:55,cy:350,r:28 },
-    { cx:190,cy:260,r:22 }, { cx:381,cy:265,r:25 }
+    { cx:239,cy:223,r:32 }, { cx:211,cy:202,r:32 }, { cx:55,cy:350,r:35 },
+    { cx:190,cy:260,r:32 }, { cx:381,cy:265,r:35 }
   ]},
 ];
 
