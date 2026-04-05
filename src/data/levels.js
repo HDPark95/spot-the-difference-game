@@ -9,10 +9,10 @@ export const levels = [
     modifiedSvg: "/scenes/cafe-modified.svg",
     diffs: [
       { id: 1, cx: 89, cy: 123, r: 22, label: "메뉴판 커피잔 아이콘이 사라졌어요" },
-      { id: 2, cx: 400, cy: 116, r: 22, label: "선반 위 병이 사라졌어요" },
+      { id: 2, cx: 379, cy: 120, r: 22, label: "선반 위 병이 사라졌어요" },
       { id: 3, cx: 399, cy: 240, r: 22, label: "손님 핸드백이 사라졌어요" },
       { id: 4, cx: 108, cy: 221, r: 30, label: "커피머신이 좌우반전 되었어요" },
-      { id: 5, cx: 166, cy: 370, r: 30, label: "카운터 문 장식이 사라졌어요" },
+      { id: 5, cx: 187, cy: 334, r: 25, label: "카운터 안쪽 장식이 사라졌어요" },
     ],
   },
   {
@@ -27,7 +27,7 @@ export const levels = [
       { id: 1, cx: 111, cy: 196, r: 22, label: "선반 상단 책 받침대가 사라졌어요" },
       { id: 2, cx: 99, cy: 275, r: 22, label: "선반 중단 책 받침대가 사라졌어요" },
       { id: 3, cx: 398, cy: 339, r: 28, label: "화분 위치가 바뀌었어요" },
-      { id: 4, cx: 309, cy: 326, r: 22, label: "인물 상의 색이 바뀌었어요" },
+      { id: 4, cx: 240, cy: 178, r: 25, label: "조명이 사라졌어요" },
       { id: 5, cx: 86, cy: 192, r: 22, label: "선반 위에 책이 생겼어요" },
     ],
   },
@@ -44,7 +44,7 @@ export const levels = [
       { id: 2, cx: 375, cy: 333, r: 25, label: "배드민턴 치는 아이가 사라졌어요" },
       { id: 3, cx: 308, cy: 78, r: 22, label: "나무 위에 나비가 생겼어요" },
       { id: 4, cx: 233, cy: 386, r: 22, label: "바구니 위치가 바뀌었어요" },
-      { id: 5, cx: 260, cy: 155, r: 25, label: "나뭇잎 색이 바뀌었어요" },
+      { id: 5, cx: 205, cy: 215, r: 22, label: "나뭇잎이 사라졌어요" },
     ],
   },
   {
