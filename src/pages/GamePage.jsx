@@ -17,6 +17,7 @@ export default function GamePage() {
   const [hintsLeft, setHintsLeft] = useState(3);
   const [toast, setToast] = useState(null);
   const [wrongMarks, setWrongMarks] = useState([]);
+  const [hintTarget, setHintTarget] = useState(null);
   const toastTimer = useRef(null);
   const intervalRef = useRef(null);
 
@@ -55,13 +56,17 @@ export default function GamePage() {
   }, []);
 
   const useHint = () => {
-    if (gameOver || hintsLeft <= 0) return;
+    if (gameOver || hintsLeft <= 0) {
+      if (hintsLeft <= 0) showToast("힌트를 모두 사용했습니다", "rgba(233,69,96,.9)");
+      return;
+    }
     const remaining = level.diffs.filter((d) => !found.has(d.id));
     if (remaining.length === 0) return;
     setHintsLeft((h) => h - 1);
     const target = remaining[Math.floor(Math.random() * remaining.length)];
+    setHintTarget(target);
     showToast("이 근처를 잘 살펴보세요!", "rgba(245,166,35,.9)");
-    // 힌트 깜빡임은 CSS 애니메이션으로 처리 가능
+    setTimeout(() => setHintTarget(null), 3500);
   };
 
   const showAnswers = () => {
@@ -112,6 +117,7 @@ export default function GamePage() {
           label="A"
           diffs={level.diffs}
           found={found}
+          hintTarget={hintTarget}
           onDiffFound={handleDiffFound}
           onWrong={handleWrong}
         />
@@ -120,6 +126,7 @@ export default function GamePage() {
           label="B"
           diffs={level.diffs}
           found={found}
+          hintTarget={hintTarget}
           onDiffFound={handleDiffFound}
           onWrong={handleWrong}
         />

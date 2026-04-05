@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import styles from "./GamePanel.module.css";
 
-export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, onWrong }) {
+export default function GamePanel({ svgUrl, label, diffs, found, hintTarget, onDiffFound, onWrong }) {
   const containerRef = useRef(null);
   const [svgLoaded, setSvgLoaded] = useState(false);
   const [viewBox, setViewBox] = useState([0, 0, 500, 500]);
@@ -76,6 +76,9 @@ export default function GamePanel({ svgUrl, label, diffs, found, onDiffFound, on
         if (!d) return null;
         return <div key={fid} className={styles.foundCircle} style={getCircleStyle(d)} />;
       })}
+      {svgLoaded && hintTarget && (
+        <div className={styles.hintPulse} style={getCircleStyle({ ...hintTarget, r: hintTarget.r * 1.3 })} />
+      )}
     </div>
   );
 }
