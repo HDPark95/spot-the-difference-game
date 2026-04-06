@@ -24,14 +24,14 @@
         "cy": 120,
         "r": 32,
         "label": "선반 위 병이 사라졌어요",
-        "changedInArea": 982,
+        "changedInArea": 158,
         "totalInArea": 3207,
-        "changeRatio": 0.30620517617711257,
+        "changeRatio": 0.04926722793888369,
         "px": 379,
         "py": 120,
         "pr": 32,
         "pass": true,
-        "grade": "A (확실히 보임)"
+        "grade": "C (겨우 보임)"
       },
       {
         "id": 3,
@@ -39,9 +39,9 @@
         "cy": 240,
         "r": 32,
         "label": "손님 핸드백이 사라졌어요",
-        "changedInArea": 410,
+        "changedInArea": 414,
         "totalInArea": 3207,
-        "changeRatio": 0.1278453383224197,
+        "changeRatio": 0.12909260991580918,
         "px": 399,
         "py": 240,
         "pr": 32,
@@ -79,8 +79,8 @@
         "grade": "C (겨우 보임)"
       }
     ],
-    "uncovered": 3672,
-    "totalChanged": 7236
+    "uncovered": 3671,
+    "totalChanged": 6415
   },
   {
     "id": "livingroom",
@@ -162,8 +162,8 @@
         "grade": "B (잘 보면 보임)"
       }
     ],
-    "uncovered": 3313,
-    "totalChanged": 6624
+    "uncovered": 3311,
+    "totalChanged": 6622
   },
   {
     "id": "park",
@@ -245,8 +245,8 @@
         "grade": "A (확실히 보임)"
       }
     ],
-    "uncovered": 7733,
-    "totalChanged": 15841
+    "uncovered": 7760,
+    "totalChanged": 15868
   },
   {
     "id": "dogwalk",
@@ -254,82 +254,67 @@
     "diffs": [
       {
         "id": 1,
-        "cx": 195,
-        "cy": 108,
-        "r": 35,
+        "cx": 147,
+        "cy": 110,
+        "r": 40,
         "label": "구름이 사라졌어요",
-        "changedInArea": 676,
-        "totalInArea": 3851,
-        "changeRatio": 0.17553882108543237,
-        "px": 195,
-        "py": 108,
-        "pr": 35,
+        "changedInArea": 1463,
+        "totalInArea": 5023,
+        "changeRatio": 0.2912602030658969,
+        "px": 147,
+        "py": 110,
+        "pr": 40,
         "pass": true,
         "grade": "B (잘 보면 보임)"
       },
       {
         "id": 2,
-        "cx": 155,
-        "cy": 245,
-        "r": 35,
+        "cx": 169,
+        "cy": 260,
+        "r": 40,
         "label": "왼쪽 식물이 사라졌어요",
-        "changedInArea": 989,
-        "totalInArea": 3851,
-        "changeRatio": 0.2568164113217346,
-        "px": 155,
-        "py": 245,
-        "pr": 35,
+        "changedInArea": 1661,
+        "totalInArea": 5023,
+        "changeRatio": 0.3306788771650408,
+        "px": 169,
+        "py": 260,
+        "pr": 40,
         "pass": true,
-        "grade": "B (잘 보면 보임)"
+        "grade": "A (확실히 보임)"
       },
       {
         "id": 3,
-        "cx": 400,
-        "cy": 82,
-        "r": 32,
-        "label": "하늘에 새가 생겼어요",
-        "changedInArea": 365,
-        "totalInArea": 3207,
-        "changeRatio": 0.11381353289678828,
-        "px": 400,
-        "py": 82,
-        "pr": 32,
+        "cx": 310,
+        "cy": 290,
+        "r": 40,
+        "label": "오른쪽 풀밭이 사라졌어요",
+        "changedInArea": 1472,
+        "totalInArea": 5023,
+        "changeRatio": 0.2930519609794943,
+        "px": 310,
+        "py": 290,
+        "pr": 40,
         "pass": true,
         "grade": "B (잘 보면 보임)"
       },
       {
         "id": 4,
-        "cx": 235,
-        "cy": 265,
-        "r": 35,
-        "label": "캐릭터 크기가 커졌어요",
-        "changedInArea": 2110,
-        "totalInArea": 3851,
-        "changeRatio": 0.5479096338613347,
-        "px": 235,
-        "py": 265,
-        "pr": 35,
+        "cx": 270,
+        "cy": 240,
+        "r": 40,
+        "label": "강아지 색이 바뀌었어요",
+        "changedInArea": 997,
+        "totalInArea": 5023,
+        "changeRatio": 0.19848695998407326,
+        "px": 270,
+        "py": 240,
+        "pr": 40,
         "pass": true,
-        "grade": "A (확실히 보임)"
-      },
-      {
-        "id": 5,
-        "cx": 250,
-        "cy": 160,
-        "r": 35,
-        "label": "배경 색이 바뀌었어요",
-        "changedInArea": 1922,
-        "totalInArea": 3851,
-        "changeRatio": 0.49909114515710207,
-        "px": 250,
-        "py": 160,
-        "pr": 35,
-        "pass": true,
-        "grade": "A (확실히 보임)"
+        "grade": "B (잘 보면 보임)"
       }
     ],
-    "uncovered": 31434,
-    "totalChanged": 37496
+    "uncovered": 1116,
+    "totalChanged": 6709
   },
   {
     "id": "coffee",
@@ -454,9 +439,9 @@
         "cy": 261,
         "r": 80,
         "label": "요리사 위치가 바뀌었어요",
-        "changedInArea": 9341,
+        "changedInArea": 9323,
         "totalInArea": 20079,
-        "changeRatio": 0.4652124109766423,
+        "changeRatio": 0.46431595198964093,
         "px": 295,
         "py": 261,
         "pr": 80,
@@ -494,8 +479,8 @@
         "grade": "A (확실히 보임)"
       }
     ],
-    "uncovered": 18255,
-    "totalChanged": 41275
+    "uncovered": 18287,
+    "totalChanged": 41289
   },
   {
     "id": "classroom",
@@ -586,28 +571,13 @@
     "diffs": [
       {
         "id": 1,
-        "cx": 305,
-        "cy": 350,
-        "r": 35,
-        "label": "칠판의 내용이 사라졌어요",
-        "changedInArea": 824,
-        "totalInArea": 3851,
-        "changeRatio": 0.21397039729940276,
-        "px": 305,
-        "py": 350,
-        "pr": 35,
-        "pass": true,
-        "grade": "B (잘 보면 보임)"
-      },
-      {
-        "id": 2,
         "cx": 346,
         "cy": 395,
         "r": 40,
         "label": "쓰레기통 위치가 바뀌었어요",
-        "changedInArea": 782,
+        "changedInArea": 696,
         "totalInArea": 5023,
-        "changeRatio": 0.15568385427035636,
+        "changeRatio": 0.1385626119848696,
         "px": 346,
         "py": 395,
         "pr": 40,
@@ -615,52 +585,37 @@
         "grade": "B (잘 보면 보임)"
       },
       {
+        "id": 2,
+        "cx": 305,
+        "cy": 370,
+        "r": 45,
+        "label": "칠판이 좌우반전 되었어요",
+        "changedInArea": 1434,
+        "totalInArea": 6359,
+        "changeRatio": 0.22550715521308382,
+        "px": 305,
+        "py": 370,
+        "pr": 45,
+        "pass": true,
+        "grade": "B (잘 보면 보임)"
+      },
+      {
         "id": 3,
-        "cx": 418,
-        "cy": 333,
+        "cx": 305,
+        "cy": 350,
         "r": 35,
-        "label": "학생의 소품이 사라졌어요",
-        "changedInArea": 196,
+        "label": "칠판의 내용이 사라졌어요",
+        "changedInArea": 261,
         "totalInArea": 3851,
-        "changeRatio": 0.05089587120228512,
-        "px": 418,
-        "py": 333,
+        "changeRatio": 0.0677746039989613,
+        "px": 305,
+        "py": 350,
         "pr": 35,
         "pass": true,
         "grade": "C (겨우 보임)"
-      },
-      {
-        "id": 4,
-        "cx": 160,
-        "cy": 219,
-        "r": 35,
-        "label": "선생님의 소품이 사라졌어요",
-        "changedInArea": 707,
-        "totalInArea": 3851,
-        "changeRatio": 0.1835886782653856,
-        "px": 160,
-        "py": 219,
-        "pr": 35,
-        "pass": true,
-        "grade": "B (잘 보면 보임)"
-      },
-      {
-        "id": 5,
-        "cx": 246,
-        "cy": 110,
-        "r": 35,
-        "label": "배경 장식이 사라졌어요",
-        "changedInArea": 714,
-        "totalInArea": 3851,
-        "changeRatio": 0.1854063879511815,
-        "px": 246,
-        "py": 110,
-        "pr": 35,
-        "pass": true,
-        "grade": "B (잘 보면 보임)"
       }
     ],
-    "uncovered": 1669,
-    "totalChanged": 4849
+    "uncovered": 2650,
+    "totalChanged": 4472
   }
 ]

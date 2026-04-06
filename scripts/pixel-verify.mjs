@@ -27,7 +27,7 @@ async function renderSvgToPixels(browser, svgPath) {
   await page.setViewport({ width: SIZE, height: SIZE, deviceScaleFactor: 1 });
   const svg = fs.readFileSync(path.join(PROJECT, "public", svgPath), "utf-8");
   await page.setContent(`<html><body style="margin:0;width:${SIZE}px;height:${SIZE}px">${svg}</body></html>`, { waitUntil: "domcontentloaded" });
-  await page.evaluate(() => { const bs = document.querySelector("#background-simple"); if (bs) bs.style.display = "none"; });
+  // background-simple은 일부 SVG에서 메인 배경이므로 숨기지 않음
   await new Promise(r => setTimeout(r, 500));
   const buf = await page.screenshot({ type: "png" });
   await page.close();

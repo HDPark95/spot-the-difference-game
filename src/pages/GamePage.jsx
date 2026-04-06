@@ -69,9 +69,12 @@ export default function GamePage() {
     setTimeout(() => setHintTarget(null), 3500);
   };
 
+  const [showConfirm, setShowConfirm] = useState(false);
+
   const showAnswers = () => {
     if (gameOver) return;
-    if (!window.confirm("정답을 보시겠습니까?")) return;
+    if (!showConfirm) { setShowConfirm(true); return; }
+    setShowConfirm(false);
     setGameOver(true);
     clearInterval(intervalRef.current);
     const remaining = level.diffs.filter((d) => !found.has(d.id));
@@ -107,7 +110,7 @@ export default function GamePage() {
           힌트 ({hintsLeft}회)
         </button>
         <button className={`${styles.toolBtn} ${styles.answer}`} onClick={showAnswers}>
-          정답 보기
+          {showConfirm ? "정말 보시겠습니까?" : "정답 보기"}
         </button>
       </div>
 
